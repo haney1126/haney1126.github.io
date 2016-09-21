@@ -6,8 +6,19 @@
   </head>
   <body>
     <script>
-        for (name in document) {
-            console.log(name);}
+        var profile = {};
+        profile.name = 'Jeong haeun';
+        profile.age = '21';
+        var like = ['강아지','알로에주스','게임']
+        for(var i=0; i< like.length; i++){
+            document.write(like[i]+",");
+        }
+        var i = 0;
+        var j = {};
+        function hello(){
+            console.log('정하은입니다');
+        }
+        hello();
     </script>
   </body>
 </html>
