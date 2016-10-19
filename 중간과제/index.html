@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+<title>nieuns, packaging</title>
+</head>
+<body>
+    <header>
+            <div class="button_container"  id="navigation">
+              <span class="top"></span>
+              <span class="middle"></span>
+              <span class="bottom"></span>
+            </div>
+    </header>
+    <div class="pageBox menu">
+        <div class="main" id="fullPageBox">
+            <div class="fullPage menu1">
+                <div><img src="img/menu1.jpg"></div>
+                <a href="commeparmagie/main.html">Comme par magie<div></div></a>
+            </div>
+            <div class="fullPage menu2">
+                      <div><img src="img/menu2.jpg"></div>
+                      <a href="#">Glacon<div></div></a>
+            </div>
+        </div>
+        <div class="mousewheel">
+            <div class="wheel"></div>
+            <img src="img/mouse_wheel.png">
+        </div>
+    </div>
+    <h1>nieuns</h1>
+    <div class="main_img">
+        <img src="img/main.jpg" width="100%">
+    </div>
+    <footer>
+        <p>copyright (c) haney all right reserved</p>
+    </footer>
+    <script>
+        document.getElementById('navigation').addEventListener('click', checkNav);
+        function checkNav() {
+          if (document.body.classList.contains('navigation-active')) {
+            closeNav();
+          } else {
+            openNav();
+          }
+        }
+
+        function closeNav() {
+          document.body.classList.remove('navigation-active');
+          document.body.classList.add('navigation-close');
+          $('body').css('background-color','#fff');
+          $('.main_img').css('opacity','1');
+          $('footer > p').css('color','#000');
+          $('h1').css('opacity','1');
+          
+        }
+
+        function openNav() {
+          document.body.classList.remove('navigation-close');
+          document.body.classList.add('navigation-active');
+          $('body').css('background-color','#000');
+          $('.main_img').css('opacity','0');
+          $('footer > p').css('color','#fff');
+          $('h1').css('opacity','0');
+        }
+    </script>
+    <script src="js/fullPage.js"></script> 
+    <script src="js/fullPage.min.js"></script> 
+    <script>
+        $.fullPage();
+    </script>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36251023-1']);
+      _gaq.push(['_setDomainName', 'jqueryscript.net']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script>
+        $(document).ready(function(){
+            setInterval(loop,1000);
+        });
+        function loop(){  $(".wheel").animate({top:'20px'}).fadeOut().animate({top:'0'}).fadeIn();
+        }
+</script>
+</body>
+</html>

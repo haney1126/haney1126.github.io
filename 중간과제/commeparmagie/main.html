@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+    <link href="http://www.openhiun.com/hangul/nanumbarungothic.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery.fullPage.js"></script>
+    <script src="js/jquery.fullPage.min.js"></script>
+    <script src="js/jquery.bxslider.min.js"></script>
+<script>
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                anchors: ['mainPage','1stPage', '2ndPage', '3rdPage', '4thPage', '5thPage', '6thPage'],
+                menu: '#menu',
+                css3: true,
+                scrollingSpeed: 800
+            });
+        $('.bxslider').bxSlider({
+            mode: 'vertical',
+            slideMargin: 5,
+            controls: false
+            });
+        });
+        
+    </script>
+    <script type="text/javascript">
+        
+function character() {
+	this.length = character.arguments.length;
+	for (i=0; i<this.length; i++) 
+		this[i+1] = character.arguments[i];
+}
+
+function do_type() {
+	if (x==viewstr.length+1) { 
+		for (n=0; n<100000; n++);
+		y+=3; 
+		if (y>2) y=0; 
+		document.getElementById("viewer").innerHTML=' '; 
+		viewstr = item[y]; 
+		x=0; 
+	} 
+	document.getElementById("viewer").innerHTML=viewstr.substring(0,x);
+	x+=1; //몇글자씩 나타날껀지 
+	setTimeout("do_type()",80); //타이핑 속도
+} 
+    </script>
+    <script type="text/javascript">
+       
+var item = new character();
+item[0]="comme par magie                       "; 
+
+var x=1, y=0, n=0; 
+var viewstr = item[y]; 
+
+window.onload = function(){
+	do_type();
+};
+    </script> 
+    <script langage="JavaScript">
+        function hi(){
+         alert("welcome_");
+        }
+    </script>
+</head>
+<body>
+    <header>   
+        <nav>
+          <input name="menu_bt" id="menu_bt01" type="checkbox" class="menubt01">
+          <label for="menu_bt01" class="bt_box">
+           <div>ㄴ<h1>nieuns</h1></div>
+           </label>
+            <ul class="slide_menu">
+                <li><a href="#mainPage" data-menuanchor="mainPage">home</a></li>
+                <li><a href="#1stPage" data-menuanchor="1stPage">infomation</a></li>
+                <li><a href="#2ndPage" data-menuanchor="2ngPage">flavor</a></li>
+                <li><a href="#3rdPage" data-menuanchor="3rdPage">gallery</a></li>
+                <li><a href="#4thPage" data-menuanchor="4thPage">contact us</a></li>
+            </ul>    
+        </nav>
+    </header>
+     <div id="fullpage">
+        <div class="section" id="section0">
+            <article>
+                <h2 id="viewer"></h2>
+                <aside>
+                    <a href="#4thPage" data-menuanchor="4thPage"><div></div>
+                    <div>nieuns</div></a>
+                </aside>
+                <img src="img/magie_main.png" width="720px" height="449px">
+            </article>
+        </div>
+        <div class="section" id="section1">
+            <div class="slide" id="slide1" data-anchor="slide1">
+            <div>
+                <img src="img/magie_1.jpg">
+                <p>Meaning magical in French, Comme Par Magie pursues to be high end and mystique. While people back in the days used to consume beer to fill their belly as well as to warm their body temperature, beer nowadays has become too common and make them feel full too easily. </p>
+            </div>
+            </div>
+            <div class="slide" id="slide2" data-anchor="slide2">
+                <div>
+                    <p>Comme Par Magie differentiates itself from other beers on the shelf. It consists of one bottle of sparkling water and three different flavors of beer extract containing 30% of alcohol. </p>
+                    <p>You can easily enjoy tasteful beer anytime, anywhere by simply spraying it to the sparkling water inside the package.</p>
+                </div>
+            </div>
+            <div class="slide" id="slide3" data-anchor="slide3">
+                <div>
+                    <img src="img/magie_3.jpg">
+                    <p>Comme Par Magie will be a great replacement for flower or perfume for someone’s special day.</p>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="section2">
+            <article>
+               <h3>flavor</h3>
+                <div class="magie_4"></div>
+            <ul class="bxslider">
+                <li><div>
+                    <h4 class="flavor1">passionné</h4>
+                    <img src="img/flavor_1.png">
+                </div></li>
+                <li><div>
+                    <h4 class="flavor2">attrait</h4>
+                    <img src="img/flavor_2.png">
+                </div></li>
+                <li><div>
+                    <h4 class="flavor3">bonheur</h4>
+                    <img src="img/flavor_3.png">
+                </div></li>
+            </ul>
+        </article>
+    </div>
+    <div class="section" id="section3">
+        <article id="gallery">
+            <div class="line"></div>
+            <h3>gallery</h3>
+            <ul>
+                <li class="firstimg"><img src="img/gallery/small/gallery1.jpg" class="small"><img src="img/gallery/gallery1.jpg" class="pic"></li>
+                <li><img src="img/gallery/small/gallery2.jpg" class="small"><img src="img/gallery/gallery2.jpg" class="pic"></li>
+                <li><img src="img/gallery/small/gallery3.jpg" class="small"><img src="img/gallery/gallery3.jpg" class="pic"></li>
+                <li><img src="img/gallery/small/gallery4.jpg" class="small"><img src="img/gallery/gallery4.jpg" class="pic"></li>
+                <li><img src="img/gallery/small/gallery5.jpg" class="small"><img src="img/gallery/gallery5.jpg" class="pic"></li>
+                <li><img src="img/gallery/small/gallery6.jpg" class="small"><img src="img/gallery/gallery6.jpg" class="pic"></li>
+                <li><img src="img/gallery/small/gallery7.jpg" class="small"><img src="img/gallery/gallery7.jpg" class="pic"></li>
+                <li><img src="img/gallery/small/gallery8.jpg" class="small"><img src="img/gallery/gallery8.jpg" class="pic"></li>
+                <li><img src="img/gallery/small/gallery9.jpg" class="small"><img src="img/gallery/gallery9.jpg" class="pic"></li>
+            </ul>
+        </article>
+    </div>
+    <div class="section" id="section4">
+        <article>
+            <h3>nieuns</h3>
+				<div class="contactus">
+					<figure class="nieuns">
+						<img src="img/nieuns1.jpeg" width="300px" height="300px"/>
+						<figcaption>
+						    <div>
+							<h4>Bohyun Kim</h4>
+                                <p class="icon-links">
+								<a href="https://www.instagram.com/sprbb/" target="_blank"><span class="icon-instagram">instagram</span></a>
+								<a href="https://kr.pinterest.com/sprcong/" target="_blank"><span  class="icon-pinterest">pinterest</span></a>
+                                </p>
+                            </div>
+						</figcaption>			
+					</figure>
+					<figure class="nieuns">
+						<img src="img/nieuns2.jpeg" width="300px" height="300px"/>
+						<figcaption>
+							<div>
+							<h4>Jaeeun Kim</h4>
+							<p class="icon-links">
+								<a href="https://www.instagram.com/jae__x2/" target="_blank"><span class="icon-instagram">instagram</span></a>
+								<a href="https://kr.pinterest.com/wodms960522/" target="_blank"><span  class="icon-pinterest">pinterest</span></a>
+							</p>
+							</div>
+						</figcaption>			
+					</figure>
+					<figure class="nins">
+						<img src="img/nieuns3.jpg" width="300px" height="300px"/>
+						<figcaption>
+							<div>
+							<h4>Haeun Jeong</h4>
+							<p class="icon-links">
+								<a href="https://www.instagram.com/haney_1126/" target="_blank"><span class="icon-instagram">instagram</span></a>
+								<a href="https://kr.pinterest.com/haney_1126/" target="_blank"><span  class="icon-pinterest">pinterest</span></a>
+							</p>
+							</div>
+						</figcaption>			
+					</figure>
+				</div>    
+        </article>
+    </div>
+    </div> 
+</body>
+</html>
