@@ -61,6 +61,8 @@ body {font-family: 'DidotLTStd-Headline'}
 
 a {text-decoration: none;}
 
+.home img {width: 30px; height: 30px; position: fixed; right: 3%; margin-left: -15px; z-index: 9999; top: 5%; cursor: pointer; pointer-events: all;}
+
 input[type=checkbox]{display: none;}
 input.menubt01:checked ~.slide_menu{left: 0; transition: 0.2s ease-out;}
 input.menubt01:checked ~.bt_box{left: 220px; transition: 0.2s ease-out;}

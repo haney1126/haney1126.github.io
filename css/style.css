@@ -184,9 +184,11 @@ html, body {
   position: absolute;
 }
 
-.mousewheel {position: fixed; bottom: 130px;left: 50%; margin-left: -25px;}
-.mousewheel div {width: 5px; height: 5px; margin-left: 23px; background-color: #fff; border-radius: 10px; position: absolute; margin-top: 10px;}
+.mousewheel {position: fixed; bottom: 160px;left: 50%; margin-left: -25px;}
+.mousewheel div {width: 5px; height: 5px; margin-left: 23px; background-color: #fff; border-radius: 10px; position: absolute; margin-top: 30px;}
 .mousewheel img {width: 50px; height: 50px;}
+
+.mousewheel p {color: #fff; margin-top: 10px;}
 
 .navigation-active a {font-size: 80px; position: absolute; font-family: 'FuturaStd-LightOblique'; padding-left: 40px; color: #727272; width: 100%; height: 200px;}
 .navigation-active .menu1 a {top: 50%; margin-top: -40px;}
@@ -200,6 +202,6 @@ html, body {
 .navigation-active .menu2 a:hover {color: #fff;}
 .navigation-active .menu2 a:hover div {width: 260px;}
 
-footer {font-family: 'FuturaStd-Light'; text-align: center; position: absolute; bottom: 30px; left: 50%; margin-left: -120px;}
+footer {font-family: 'FuturaStd-Light'; text-align: center; position: absolute; bottom: 40px; left: 50%; margin-left: -120px;}
 
 .imgload {display: none;}

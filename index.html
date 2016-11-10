@@ -13,8 +13,10 @@ $(document).ready(function(){
     // 페이지 전환 시 페이드아웃
     $('a').click(function(e){
         redirect = $(this).attr('href');
+        //a 태그의 '#' 때문에 브라우저의 커서가 맨위로 올라가는 동작을 막아준다
         e.preventDefault();
         $('body').fadeOut(400, function(){
+            //입력과 동시에 입력한 주소로 이동
             document.location.href = redirect
         });
     });
@@ -38,12 +40,14 @@ $(document).ready(function(){
             </div>
             <div class="fullPage menu2">
                       <div><img src="img/menu2.jpg"></div>
-                      <a href="#">Glacon<div></div></a>
+                      <a href="glacon/index.html">Glacon<div></div></a>
             </div>
         </div>
         <div class="mousewheel">
             <div class="wheel"></div>
-            <img src="img/mouse_wheel.png">
+            <div class="wheel2"></div>
+            <div class="wheel3"></div>
+            <p>scrolling</p>
         </div>
     </div>
     <h1>nieuns</h1>
@@ -54,6 +58,8 @@ $(document).ready(function(){
         <p>copyright (c) haney all right reserved</p>
     </footer>
     <script type="text/javascript">
+        //navigation에 click 이벤트를 추가
+        //navigation-active일 때 closeNav 함수를 주고 아닐 시 openNav함수를 적용
         document.getElementById('navigation').addEventListener('click', checkNav);
         function checkNav() {
           if (document.body.classList.contains('navigation-active')) {
@@ -101,10 +107,14 @@ $(document).ready(function(){
       })();
     </script>
     <script type="text/javascript">
+        //스크롤링을 지시하는 animate
+        //무한으로 동작하게
         $(document).ready(function(){
+            //일정시간마다 반복 실행되는 함수
             setInterval(loop,1000);
         });
-        function loop(){  $(".wheel").animate({top:'20px'}).fadeOut().animate({top:'0'}).fadeIn();
+        function loop(){ $(".wheel2").animate({top:'20px'}).fadeOut().animate({top:'0'}).fadeIn();
+        $(".wheel3").animate({top:'40px'}).fadeOut().animate({top:'0'}).fadeIn();
         }
         
 </script>
