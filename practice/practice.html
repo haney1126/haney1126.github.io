@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko" data-framework="jquery">
+	<head>
+		<meta charset="utf-8">
+		<title>Interaction Programming</title>
+		<link rel="stylesheet" href="normalize.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<section>
+           <div class="imageSlider">
+               <ul class="sliderBox" id="sliderBox">
+               </ul>
+               <div id="controller" class="controller">
+                   <span id="leftButton" class="left">Left</span>
+                   <span id="rightButton" class="right">Right</span>
+               </div>
+           </div>
+        </section>
+
+		<!-- Javascript -->
+		<script type="text/javascript" src="jquery-2.1.1.js"></script>
+		<script type="text/javascript">
+                var imgArray = ['img1.jpg','img2.jpg','img3.jpg'];
+            $(document).ready(function(){
+                var $sliderBox = $('#sliderBox');
+                var li = $('#sliderBox > li');
+                var maxPage = li.length; //슬라이드 컨텐츠의 길이를 정의합니다.
+                var contentWidth = $sliderBox.width(); // 슬라이드 컨텐츠 width
+                var currentPage = 0; //현재페이지 변수
+                var $leftBtn = $('#leftButton'); // 왼쪽 버튼
+                var $rightBtn = $('#rightButton'); // 오른쪽 버튼
+                var isRolling = false; // 애니메이션 진행 여부
+                
+                $.each(imgArray, function (idx, val) {
+                  $sliderBox.append('<li><img src="' + val + '"/></li>')
+                  //sliderContainer에 $li를 자식으로 붙여준다
+                });
+                
+                //부드러운 애니메이션을 만들기 위해 컨텐츠의 처음과 끝에 클론생성
+                var cloneLast = $sliderBox.children().last().clone();
+                var cloneFirst = $sliderBox.children().first().clone();
+
+                $sliderBox.prepend(cloneLast);
+                $sliderBox.append(cloneFirst);
+                
+                console.log(cloneFirst);
+                
+                //현재페이지가 0번째가 아닌 1번째가 나오게 지정
+                currentPage = 1;
+                //맨처음 시작이 클론이 아닌 진짜 컨텐츠가 보여지게 margin-laft를 컨텐츠 값만큼 마이너스로 준다.
+                $sliderBox.width((maxPage +2) * contentWidth).css('margin-left', -1 * contentWidth);
+                
+                
+            });
+		</script>
+	</body>
+</html>

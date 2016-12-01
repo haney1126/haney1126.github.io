@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko" data-framework="jquery">
+	<head>
+		<meta charset="utf-8">
+		<title>Interaction Programming</title>
+		<link rel="stylesheet" href="normalize.css">
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+		<section>
+			<div id="imageSlider" class="imageSlider">
+				<ul id="sliderContainer" class="sliderContainer">
+					<!-- 슬라이더 아이템의 위치 -->
+				</ul>
+				<div id="controller" class="controller">
+					<button id="leftButton" class="left">왼쪽으로</button>
+					<button id="rightButton" class="right">오른쪽으로</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Javascript -->
+		<script type="text/javascript" src="jquery-2.1.1.js"></script>
+		<script type="text/javascript">
+            
+			var colorsArray = ['red', 'blue', 'green'];
+      
+      $(document).ready(function () {
+        
+        var $sliderContainer = $('#sliderContainer');
+        var maxPage = colorsArray.length; //슬라이드 컨텐츠의 길이를 정의합니다.
+        var contentWidth = $sliderContainer.width(); // 슬라이드 컨텐츠 width
+        var currentPage = 0; //현재페이지 변수
+        var $leftButton = $('#leftButton'); // 왼쪽 버튼
+        var $rightButton = $('#rightButton'); // 오른쪽 버튼
+        var isRolling = false; // 애니메이션 진행 여부
+        var rollingTimer = 0; // 자동 슬라이드 타이머 변수.
+        
+        //colorsArray변수 안에 각각 li를 넣고 li마다 background-color를 value값으로 적용
+        $.each(colorsArray, function (idx, val) {
+          var $li = $('<li/>', {'style': 'background-color:' + val});
+          //sliderContainer에 $li를 자식으로 붙여준다
+            $sliderContainer.append($li);
+        });
+        
+        //부드러운 애니메이션을 만들기 위해 컨텐츠의 처음과 끝에 클론생성
+        var cloneLast = $sliderContainer.children().last().clone();
+        var cloneFirst = $sliderContainer.children().first().clone();
+        
+        $sliderContainer.prepend(cloneLast);
+        $sliderContainer.append(cloneFirst);
+        
+        currentPage = 1;
+        //맨처음 시작이 클론이 아닌 진짜 컨텐츠가 보여지게 margin-laft를 컨텐츠 값만큼 마이너스로 준다.
+        $sliderContainer.width((maxPage + 2) * contentWidth).css('margin-left', -1 * contentWidth);
+          
+        //왼쪽으로 버튼 클릭 시 발생하는 이벤트
+        $leftButton.on('click', function () {
+            //만약 애니메이션이 진행되고 있지 않을때
+          if (isRolling === false) {
+              //현재페이지가 0보다 크면 0=처음clone의 위치
+            if (currentPage > 0) {
+                //현재페이지에서 증감문을 이용하여 현재페이지 넘버가 하나씩 감소
+              currentPage--;
+            } else {
+              currentPage = 0;
+            }
+            //move함수 실행
+            move(currentPage, contentWidth);
+          }
+        });
+        
+        //오른쪽으로 버튼 클릭 시 발생하는 이벤트
+        $rightButton.on('click', function () {
+            //만약 애니메이션이 진행되고 있지 않을때
+          if (isRolling === false) {
+              //현재페이지 < maxPage + 1 = 마지막clone의 위치
+            if (currentPage < maxPage + 1) {
+                //현재페이지에서 증감문을 이용하여 현재페이지 넘버가 하나씩 증가
+              currentPage++;
+            } else {
+              currentPage = maxPage + 1;
+            }
+            //move함수 실행
+            move(currentPage, contentWidth);
+          }
+        });
+        
+          //move함수
+        function move(cPage, cWidth) {
+          //현재 슬라이드가 애니메이션이 진행되고 있음;
+          isRolling = true;
+          //sliderContainer.animate({margin-left:-현재페이지*컨텐츠의넓이})
+          $sliderContainer.animate({'margin-left': cPage * cWidth * -1 }, {
+            duration: 1000,
+              //모든동작이 실행완료된 후 함수
+            complete: function () {
+                //애니메이션 진행되지 않게
+              isRolling = false;
+                //만약 현재페이지가 0이라면(처음클론의 위치에 있다면)
+              if (cPage === 0) {
+                  //현재페이지를 마지막페이지로(클론제외)
+                currentPage = maxPage;
+                  //sliderContainer의 margin-left를 -컨텐츠의넓이*현재페이지만큼 이동
+                $sliderContainer.css('margin-left', contentWidth * currentPage * -1);
+                  //만약 현재페이지가 마지막클론의 위치에 있다면
+              } else if (cPage === maxPage + 1) {
+                  //현재페이지를 처음페이지로(클론제외)
+                currentPage = 1;
+                  //sliderContainer의 margin-left를 -컨텐츠의넓이*현재페이지만큼 이동
+                $sliderContainer.css('margin-left', contentWidth * currentPage * -1);
+              }
+            }
+          });
+          
+        }
+        
+      });
+		</script>
+	</body>
+</html>
