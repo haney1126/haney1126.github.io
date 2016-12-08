@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="js/jquery-2.1.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    // 페이지 전환 시 페이드인
+    $("body").css("display", "none");
+    $("body").fadeIn(400);
+    // 페이지 전환 시 페이드아웃
+    $('a').click(function(e){
+        redirect = $(this).attr('href');
+        //a 태그의 '#' 때문에 브라우저의 커서가 맨위로 올라가는 동작을 막아준다
+        e.preventDefault();
+        $('body').fadeOut(400, function(){
+            //입력과 동시에 입력한 주소로 이동
+            document.location.href = redirect
+        });
+    });
+});
+</script>
+<title>nieuns, packaging</title>
+</head>
+<body>
+    <header>
+            <div class="button_container"  id="navigation">
+              <span class="top"></span>
+              <span class="middle"></span>
+              <span class="bottom"></span>
+            </div>
+    </header>
+    <div class="pageBox menu">
+        <div class="main" id="fullPageBox">
+            <div class="fullPage menu1">
+                <div><img src="img/menu1.jpg"></div>
+                <a href="commeparmagie/main.html">Comme par magie<div></div></a>
+            </div>
+            <div class="fullPage menu2">
+                      <div><img src="img/menu2.jpg"></div>
+                      <a href="glacon/index.html">Glacon<div></div></a>
+            </div>
+        </div>
+        <div class="mousewheel">
+            <div class="wheel"></div>
+            <div class="wheel2"></div>
+            <div class="wheel3"></div>
+            <p>scrolling</p>
+        </div>
+    </div>
+    <h1>nieuns</h1>
+    <div class="main_img">
+        <img src="img/main.jpg" width="100%">
+    </div>
+    <footer>
+        <p>copyright (c) haney all right reserved</p>
+    </footer>
+    <script type="text/javascript">
+        //navigation에 click 이벤트를 추가
+        //navigation-active일 때 closeNav 함수를 주고 아닐 시 openNav함수를 적용
+        document.getElementById('navigation').addEventListener('click', checkNav);
+        function checkNav() {
+          if (document.body.classList.contains('navigation-active')) {
+            closeNav();
+          } else {
+            openNav();
+          }
+        }
+
+        function closeNav() {
+          document.body.classList.remove('navigation-active');
+          document.body.classList.add('navigation-close');
+          $('body').css('backgroundColor','#fff');
+          $('.main_img').css('opacity','1');
+          $('footer > p').css('color','#000');
+          $('h1').css('opacity','1');
+          
+        }
+
+        function openNav() {
+          document.body.classList.remove('navigation-close');
+          document.body.classList.add('navigation-active');
+          $('body').css('backgroundColor','#000');
+          $('.main_img').css('opacity','0');
+          $('footer > p').css('color','#fff');
+          $('h1').css('opacity','0');
+        }
+    </script>
+    <script src="js/fullPage.js"></script> 
+    <script src="js/fullPage.min.js"></script> 
+    <script type="text/javascript">
+        $.fullPage();
+    </script>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36251023-1']);
+      _gaq.push(['_setDomainName', 'jqueryscript.net']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script type="text/javascript">
+        //스크롤링을 지시하는 animate
+        //무한으로 동작하게
+        $(document).ready(function(){
+            //일정시간마다 반복 실행되는 함수
+            setInterval(loop,1000);
+        });
+        function loop(){ $(".wheel2").animate({top:'20px'}).fadeOut().animate({top:'0'}).fadeIn();
+        $(".wheel3").animate({top:'40px'}).fadeOut().animate({top:'0'}).fadeIn();
+        }
+        
+</script>
+</body>
+</html>
